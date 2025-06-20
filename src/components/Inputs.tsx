@@ -1,5 +1,5 @@
 interface InputsProps {
-  label: string;
+  label: string | React.ReactNode;
   type: "text" | "number";
   message: string;
   state: "error" | "success" | "normal";

@@ -1,20 +1,10 @@
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { Inputs } from "./components/Inputs";
+import { Product } from "./pages/Product";
 
 function App() {
   return (
     <>
-      <Header />
-      <Inputs
-        label="Nombre"
-        type="text"
-        message="Error al ingresar nombre"
-        state="success"
-      />
-      <Footer />
+      <Product />
     </>
   );
 }
-
 export default App;

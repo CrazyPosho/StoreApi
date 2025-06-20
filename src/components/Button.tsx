@@ -1,8 +1,11 @@
+import type { ReactNode } from "react";
+
 interface ButtonProps {
-  label: string;
+  label: string | ReactNode;
   onClick?: () => void;
   size?: "sm" | "base" | "xl";
   variant?: "primary" | "secundary" | "disabled";
+  className?: string;
 }
 
 const sizeClasses: Record<NonNullable<ButtonProps["size"]>, string> = {
@@ -24,11 +27,12 @@ export const Button = ({
   onClick,
   size = "sm",
   variant = "primary",
+  className,
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`rounded-md p-3 m-5   ${sizeClasses[size]} ${variantClasses[variant]}`}
+      className={`rounded-md p-3 ${className}  ${sizeClasses[size]} ${variantClasses[variant]}`}
     >
       {label}
     </button>
