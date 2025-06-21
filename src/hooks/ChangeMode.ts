@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useChangeMode = () => {
-  const [theme, setTheme] = useState(() => {
-    if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("theme") || "light";
-    }
-    return "light";
-  });
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
