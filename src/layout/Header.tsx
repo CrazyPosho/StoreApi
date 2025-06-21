@@ -1,6 +1,9 @@
 import { FaShoppingCart } from "react-icons/fa";
+import { useChangeMode } from "../hooks/ChangeMode";
+import { ChangeModeButton } from "../components/ChangeModeButton";
 
 export const Header = () => {
+  const { toggleTheme, theme } = useChangeMode();
   return (
     <>
       <div className="dark:bg-black/90 dark:text-white bg-white/90 text-black p-2 font-extralight  w-full  relative flex justify-between text-xl border-b-1 border-black">
@@ -16,9 +19,15 @@ export const Header = () => {
             Explore
           </a>
         </div>
-        <div className="flex items-center justify-center gap-2">
-          <FaShoppingCart />
-          Cart
+        <div className="flex items-center justify-center gap-5">
+          <div className="flex items-center justify-center gap-2">
+            <FaShoppingCart />
+            Cart
+          </div>
+          <ChangeModeButton
+            onClick={toggleTheme}
+            isDarkMode={theme === "dark"}
+          />
         </div>
       </div>
     </>
