@@ -1,2 +1,19 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+@keyframes gradient-pan {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@layer utilities {
+  .animate-gradient-pan {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: gradient-pan 4s linear infinite;
+    }
+  }
+}
