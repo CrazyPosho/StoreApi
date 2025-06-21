@@ -1,20 +1,32 @@
 import { Button } from "../components/Button";
 import { CiHeart } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
+interface ProductProps {
+  name: string;
+  description: string;
+  sold: string;
+  satisfaction: string;
+  star: string;
+  warranty: string;
+  img: string;
+}
 
-export const Product = () => {
+export const Product = ({
+  name,
+  description,
+  sold,
+  satisfaction,
+  star,
+  warranty,
+  img,
+}: ProductProps) => {
   return (
     <div className="h-screen bg-gray-200 flex flex-col p-[5%]">
       <main className="flex-1 flex justify-between items-center gap-10 overflow-hidden">
         <section className="max-w-[50%]">
-          <h1 className="text-5xl font-bold pb-6 leading-tight">
-            Una Grasita <br /> BIEN CLEAN
-          </h1>
+          <h1 className="text-5xl font-bold pb-6 leading-tight">{name}</h1>
           <p className="text-gray-600 leading-relaxed tracking-normal text-justify pb-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni fuga
-            illo dignissimos eaque reprehenderit cumque ab sit! Commodi
-            necessitatibus cupiditate ad rem culpa expedita. Libero sint iste
-            dolorum beatae qui?
+            {description}
           </p>
           <div className="flex gap-6 items-center">
             <Button
@@ -31,7 +43,7 @@ export const Product = () => {
 
         <figure className="max-w-[40%]">
           <img
-            src="../../public/shoes.png"
+            src={img}
             alt="producto"
             className="w-full h-auto object-contain"
           />
@@ -41,28 +53,28 @@ export const Product = () => {
       <footer className="flex flex-wrap justify-between border-t-2 border-gray-400 pt-4 text-center">
         <div className="w-1/2 md:w-1/4 p-2">
           <p className="font-bold text-xl">
-            2,5k+
+            {sold}k
             <br />
             <span className="font-normal text-gray-600">Sold</span>
           </p>
         </div>
         <div className="w-1/2 md:w-1/4 p-2">
           <p className="font-bold text-xl">
-            98%
+            {satisfaction}%
             <br />
             <span className="font-normal text-gray-600">Satisfaction Rate</span>
           </p>
         </div>
         <div className="w-1/2 md:w-1/4 p-2">
           <p className="font-bold text-xl">
-            1,2k
+            {star}k
             <br />
             <span className="font-normal text-gray-600">5-Star Reviews</span>
           </p>
         </div>
         <div className="w-1/2 md:w-1/4 p-2">
           <p className="font-bold text-xl">
-            10
+            {warranty}
             <br />
             <span className="font-normal text-gray-600">Year Warranty</span>
           </p>
