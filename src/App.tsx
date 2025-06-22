@@ -1,10 +1,13 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useParams } from "wouter";
 import { Layout } from "./layout/Layout";
-import { Product } from "./pages/Product";
+import { ProductDetails } from "./pages/ProductDetails";
 import { Index } from "./pages/Index";
 import { Suspense } from "react";
 
 function App() {
+  const params = useParams();
+  console.log(params);
+
   return (
     <>
       <Layout>
@@ -15,16 +18,8 @@ function App() {
             </Suspense>
           </Route>
 
-          <Route path="/product">
-            <Product
-              name={""}
-              description={""}
-              sold={""}
-              satisfaction={""}
-              star={""}
-              warranty={""}
-              img={"shoes.png"}
-            />
+          <Route path="/product/:id">
+            <ProductDetails />
           </Route>
 
           <Route>

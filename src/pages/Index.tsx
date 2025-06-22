@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getAllProduct } from "../services/api";
 import type { Product } from "../types";
 import { ProductCard } from "../components/ProductCard";
+import { Link } from "wouter";
 
 export const Index = () => {
   const [products, setProducts] = useState([]);
@@ -32,15 +33,23 @@ export const Index = () => {
 
   return (
     <div className="text-center text-3xl ">
-      <h1 className="border-b-1 border-b-black inline-block font-extralight">Nuestros Productos</h1>
+      <h1 className="border-b-1 border-b-black inline-block font-extralight">
+        Nuestros Productos
+      </h1>
       <div className="flex flex-wrap items-center justify-center">
         {products.map((product: Product) => (
-          <ProductCard
-            img={product.image}
-            title={product.title}
-            cuantity={0}
-            price={0}
-          />
+          <Link
+            className="w-[250px] h-[300px] m-5"
+            key={product.id}
+            href={`product/${product.id}`}
+          >
+            <ProductCard
+              img={product.image}
+              title={product.title}
+              cuantity={0}
+              price={0}
+            />
+          </Link>
         ))}
       </div>
     </div>

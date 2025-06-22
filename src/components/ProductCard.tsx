@@ -1,6 +1,7 @@
 import { Button } from "./Button";
 import { CiHeart } from "react-icons/ci";
 
+
 interface ProductCard {
   img: string;
   title: string;
