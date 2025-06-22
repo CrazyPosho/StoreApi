@@ -7,13 +7,23 @@ export const Header = () => {
   const { toggleTheme, theme } = useChangeMode();
   return (
     <>
-      <div className="dark:bg-black/90 dark:text-white bg-white/90 text-black p-2 font-extralight  w-full  relative flex justify-between items-center text-xl border-b-1 border-black ">
+      <div
+        className="
+          dark:bg-black/90 dark:text-white bg-white/90 text-black
+          p-2 font-extralight w-full flex justify-between items-center
+          text-xl border-b border-black
+
+          fixed top-0 left-0
+          h-16
+          z-50
+        "
+      >
         <Link
           href="/"
           className="cursor-pointer
-      bg-gradient-to-r from-black via-gray-200 to-black
-      text-transparent bg-clip-text
-      bg-[length:200%_auto] animate-gradient-pan"
+            bg-gradient-to-r from-black via-gray-200 to-black
+            text-transparent bg-clip-text
+            bg-[length:200%_auto] animate-gradient-pan"
         >
           PoshitoStore
         </Link>
@@ -51,3 +61,14 @@ export const Header = () => {
     </>
   );
 };
+
+{
+  /*
+// ===================== RESUMEN DE CAMBIOS =====================
+//
+// - No se realizaron cambios en este archivo. Ya estaba configurado
+//   correctamente con `fixed`, `top-0`, `h-16` y `z-50`.
+//
+// ==============================================================
+*/
+}

@@ -31,7 +31,7 @@ export const ProductDetails = () => {
 
   const { title, description, image, price, category } = product;
   return (
-    <div className="h-screen bg-gray-200 flex flex-col p-[5%]">
+    <div className="h-screen  flex flex-col p-[5%]">
       <main className="flex-1 flex justify-between items-center gap-10 overflow-hidden">
         <section className="max-w-[50%]">
           <h1 className="text-5xl font-bold pb-6 leading-tight">{title}</h1>
