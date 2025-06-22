@@ -18,13 +18,22 @@ export const Header = () => {
           PoshitoStore
         </Link>
         <div className="flex gap-8">
-          <Link href="/product" className="hover:scale-125 transition-all">
+          <Link
+            href="/product"
+            className="hover:scale-125 duration-300 transition-transform "
+          >
             Shop
           </Link>
-          <Link href="#" className="hover:scale-125 transition-all">
+          <Link
+            href="#"
+            className="hover:scale-125 duration-300 transition-transform"
+          >
             Collections
           </Link>
-          <Link href="#" className="hover:scale-125 transition-all">
+          <Link
+            href="#"
+            className="hover:scale-125 duration-300 transition-transform"
+          >
             Explore
           </Link>
         </div>
