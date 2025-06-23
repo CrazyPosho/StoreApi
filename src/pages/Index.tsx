@@ -1,27 +1,12 @@
-import { useState, useEffect } from "react";
-import { getAllProduct } from "../services/api";
 import type { Product } from "../types";
 import { ProductCard } from "../components/ProductCard";
-import { Link } from "wouter";
+import { Link, useParams } from "wouter";
+import { useFilterProducts } from "../hooks/useFilterProducts";
 
 export const Index = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { category } = useParams();
 
-  useEffect(() => {
-    getAllProduct()
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((err) => {
-        console.error("Hubo un error al cargar los productos:", err);
-        setError(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+  const { loading, error, productFiltered } = useFilterProducts(category);
 
   if (loading) {
     return <div>Cargando productos...</div>;
@@ -37,9 +22,9 @@ export const Index = () => {
         Nuestros Productos
       </h1>
       <div className="flex flex-wrap items-center justify-center">
-        {products.map((product: Product) => (
+        {productFiltered.map((product: Product) => (
           <Link
-            className="w-[250px] h-[300px] m-5"
+            className="max-w-[15.625rem] w-full h-[18.75rem] m-5"
             key={product.id}
             href={`product/${product.id}`}
           >
@@ -47,7 +32,7 @@ export const Index = () => {
               img={product.image}
               title={product.title}
               cuantity={0}
-              price={0}
+              price={product.price}
             />
           </Link>
         ))}

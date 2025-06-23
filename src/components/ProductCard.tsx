@@ -1,6 +1,5 @@
 import { Button } from "./Button";
-import { CiHeart } from "react-icons/ci";
-
+import { IoCart } from "react-icons/io5";
 
 interface ProductCard {
   img: string;
@@ -16,11 +15,7 @@ export const ProductCard = ({ img, title, cuantity, price }: ProductCard) => {
         +{cuantity}
       </p>
 
-      <Button
-        label={<CiHeart />}
-        size="xl"
-        className="absolute right-3 top-3"
-      />
+      <Button label={<IoCart />} size="xl" className="absolute right-3 top-3" />
 
       <div className="flex justify-center items-center h-40 px-4 pt-8">
         <img
@@ -31,7 +26,7 @@ export const ProductCard = ({ img, title, cuantity, price }: ProductCard) => {
       </div>
 
       <div className="px-4 py-3 m-auto">
-        <h3 className="text-lg font-bold line-clamp-2">{title}</h3>
+        <h3 className="text-lg font-bold line-clamp-2 ">{title}</h3>
         <p className="text-gray-700 text-base font-light mt-1">${price}</p>
       </div>
     </div>

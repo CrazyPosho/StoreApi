@@ -3,8 +3,10 @@ import { Layout } from "./layout/Layout";
 import { ProductDetails } from "./pages/ProductDetails";
 import { Index } from "./pages/Index";
 import { Suspense } from "react";
+import { NoFound } from "./pages/NoFound";
+import { Collections } from "./pages/Collections";
 
-function App() {
+function Router() {
   const params = useParams();
   console.log(params);
 
@@ -22,8 +24,18 @@ function App() {
             <ProductDetails />
           </Route>
 
+          <Route path="/collections">
+            <Collections />
+          </Route>
+
+          <Route path="/:category">
+            <Suspense fallback={<div>Cargando productos...</div>}>
+              <Index />
+            </Suspense>
+          </Route>
+
           <Route>
-            <h2>404: Página no encontrada</h2>
+            <NoFound />
           </Route>
         </Switch>
       </Layout>
@@ -31,4 +43,4 @@ function App() {
   );
 }
 
-export default App;
+export default Router;

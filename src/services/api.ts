@@ -7,3 +7,4 @@ export const getProductById = (id: number) =>
   fetch(`https://fakestoreapi.com/products/${id}`).then((response) =>
     response.json()
   );
+

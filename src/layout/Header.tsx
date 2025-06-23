@@ -1,5 +1,5 @@
 import { FaShoppingCart } from "react-icons/fa";
-import { useChangeMode } from "../hooks/ChangeMode";
+import { useChangeMode } from "../hooks/useChangeMode";
 import { ChangeModeButton } from "../components/ChangeModeButton";
 import { Link } from "wouter";
 
@@ -18,24 +18,23 @@ export const Header = () => {
           z-50
         "
       >
-        <Link
-          href="/"
-          className="cursor-pointer
+        <h3
+          className="
             bg-gradient-to-r from-black via-gray-200 to-black
             text-transparent bg-clip-text
             bg-[length:200%_auto] animate-gradient-pan"
         >
           PoshitoStore
-        </Link>
+        </h3>
         <div className="flex gap-8">
           <Link
-            href="/product"
+            href="/"
             className="hover:scale-125 duration-300 transition-transform "
           >
             Shop
           </Link>
           <Link
-            href="#"
+            href="/collections"
             className="hover:scale-125 duration-300 transition-transform"
           >
             Collections
