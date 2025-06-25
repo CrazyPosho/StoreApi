@@ -11,11 +11,7 @@ export const Header = () => {
         className="
           dark:bg-black/90 dark:text-white bg-white/90 text-black
           p-2 font-extralight w-full flex justify-between items-center
-          text-xl border-b border-black
-
-          fixed top-0 left-0
-          h-16
-          z-50
+          text-xl border-b border-black fixed top-0 left-0 h-16 z-50
         "
       >
         <h3
@@ -47,10 +43,13 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex items-center justify-center gap-5">
-          <div className="flex items-center justify-center gap-2">
-            <FaShoppingCart />
-            Cart
-          </div>
+          <Link href="/cart">
+            <div className="flex items-center justify-center gap-2 cursor-pointer hover:scale-125 transition-transform">
+              <FaShoppingCart />
+              Cart
+            </div>
+          </Link>
+
           <ChangeModeButton
             onClick={toggleTheme}
             isDarkMode={theme === "dark"}

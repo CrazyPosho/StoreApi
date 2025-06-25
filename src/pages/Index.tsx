@@ -9,7 +9,11 @@ export const Index = () => {
   const { loading, error, productFiltered } = useFilterProducts(category);
 
   if (loading) {
-    return <div>Cargando productos...</div>;
+    return (
+      <div className="text-3xl text-center font-extralight">
+        Cargando productos...
+      </div>
+    );
   }
 
   if (error) {
@@ -29,9 +33,10 @@ export const Index = () => {
             href={`product/${product.id}`}
           >
             <ProductCard
+              id={product.id}
               img={product.image}
               title={product.title}
-              cuantity={0}
+              quantity={0}
               price={product.price}
             />
           </Link>
