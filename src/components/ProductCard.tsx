@@ -2,6 +2,7 @@ import { useLocation } from "wouter";
 import { Button } from "./Button";
 import { IoCart } from "react-icons/io5";
 
+
 export interface ProductCardProps {
   id: number | string;
   img: string;
@@ -19,20 +20,21 @@ export const ProductCard = ({
 }: ProductCardProps) => {
   const location = useLocation()[0];
 
-  const products = [
-    {
-      id,
-      img,
-      title,
-      quantity,
-      price,
-    },
-  ];
 
   const handleAddCart = (event: React.MouseEvent) => {
     event.preventDefault();
-    localStorage.setItem("productos", JSON.stringify(products));
-    console.log("Agregado");
+    const storedCart = localStorage.getItem("productos");
+    const cart: ProductCardProps[] = storedCart ? JSON.parse(storedCart) : [];
+    const existingProductIndex = cart.findIndex((item) => item.id === id);
+
+    if (existingProductIndex !== -1) {
+      cart[existingProductIndex].quantity += 1;
+    } else {
+      cart.push({ id, img, title, price, quantity: 1 });
+    }
+    localStorage.setItem("productos", JSON.stringify(cart));
+    alert("Producto añadido al carrito");
+
   };
 
   return (

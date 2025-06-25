@@ -17,3 +17,10 @@
     }
   }
 }
+
+::view-transition-group(product-*) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+}
+
+

@@ -14,9 +14,9 @@
     "@tailwindcss/vite": "^4.1.10",
     "@vitejs/plugin-react": "^4.5.2",
     "babel-plugin-react-compiler": "^19.1.0-rc.2",
-    "react": "^19.1.0",
+    "react": "^0.0.0-experimental-cee7939b-20250625",
     "react-compiler-runtime": "^19.1.0-rc.2",
-    "react-dom": "^19.1.0",
+    "react-dom": "^0.0.0-experimental-cee7939b-20250625",
     "react-icons": "^5.5.0",
     "tailwindcss": "^4.1.10",
     "wouter": "^3.7.1"

@@ -25,6 +25,7 @@ export const Index = () => {
       <h1 className="border-b-1 border-b-black inline-block font-extralight">
         Nuestros Productos
       </h1>
+
       <div className="flex flex-wrap items-center justify-center">
         {productFiltered.map((product: Product) => (
           <Link
