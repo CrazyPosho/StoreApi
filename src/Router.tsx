@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Switch, Route } from "wouter";
 import { Layout } from "./layout/Layout";
 import { ProductDetails } from "./pages/ProductDetails";
-import { Index } from "./pages/Index";
+import { Home } from "./pages/Home";
 import { NoFound } from "./pages/NoFound";
 import { Collections } from "./pages/Collections";
 import { Carts } from "./pages/Carts";
@@ -14,7 +14,7 @@ function Router() {
         <Switch>
           <Route path="/">
             <Suspense>
-              <Index />
+              <Home />
             </Suspense>
           </Route>
 
@@ -32,7 +32,7 @@ function Router() {
 
           <Route path="/:category">
             <Suspense>
-              <Index />
+              <Home />
             </Suspense>
           </Route>
 

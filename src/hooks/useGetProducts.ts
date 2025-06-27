@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllProduct } from "../services/api";
 import type { Product } from "../types";
 
-export function useFilterProducts(category?: string) {
+export function useGetProducts(category?: string) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

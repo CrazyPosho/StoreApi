@@ -1,12 +1,12 @@
 import type { Product } from "../types";
 import { ProductCard } from "../components/ProductCard";
 import { Link, useParams } from "wouter";
-import { useFilterProducts } from "../hooks/useFilterProducts";
+import { useGetProducts } from "../hooks/useGetProducts";
 
-export const Index = () => {
+export const Home = () => {
   const { category } = useParams();
 
-  const { loading, error, productFiltered } = useFilterProducts(category);
+  const { loading, error, productFiltered } = useGetProducts(category);
 
   if (loading) {
     return (
@@ -21,8 +21,8 @@ export const Index = () => {
   }
 
   return (
-    <div className="text-center text-3xl ">
-      <h1 className="border-b-1 border-b-black inline-block font-extralight">
+    <div className="text-center  p-4">
+      <h1 className="border-b-1 border-b-black inline-block font-extralight text-4xl">
         Nuestros Productos
       </h1>
 
