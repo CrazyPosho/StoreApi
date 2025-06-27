@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { NoFound } from "./pages/NoFound";
 import { Collections } from "./pages/Collections";
 import { Carts } from "./pages/Carts";
+import { Explore } from "./pages/Explore";
 
 function Router() {
   return (
@@ -28,6 +29,9 @@ function Router() {
 
           <Route path="/cart">
             <Carts />
+          </Route>
+          <Route path="/explore">
+            <Explore />
           </Route>
 
           <Route path="/:category">

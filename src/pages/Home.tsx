@@ -37,7 +37,6 @@ export const Home = () => {
               id={product.id}
               img={product.image}
               title={product.title}
-              quantity={0}
               price={product.price}
             />
           </Link>

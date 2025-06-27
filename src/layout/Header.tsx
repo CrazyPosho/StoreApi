@@ -36,7 +36,7 @@ export const Header = () => {
             Collections
           </Link>
           <Link
-            href="#"
+            href="explore"
             className="hover:scale-125 duration-300 transition-transform"
           >
             Explore
