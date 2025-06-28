@@ -8,30 +8,25 @@ export const IconAI = () => {
           viewBox="0 0 400 400"
           className="drop-shadow-2xl"
         >
-          {/* Gradient Definitions */}
           <defs>
-            {/* Large star gradient */}
             <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ff6b6b" />
               <stop offset="50%" stopColor="#4ecdc4" />
               <stop offset="100%" stopColor="#45b7d1" />
             </linearGradient>
 
-            {/* Medium star gradient */}
             <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#667eea" />
               <stop offset="50%" stopColor="#764ba2" />
               <stop offset="100%" stopColor="#f093fb" />
             </linearGradient>
 
-            {/* Small star gradient */}
             <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ffecd2" />
               <stop offset="50%" stopColor="#fcb69f" />
               <stop offset="100%" stopColor="#ff8a80" />
             </linearGradient>
 
-            {/* Glow filter */}
             <filter id="glow">
               <feGaussianBlur stdDeviation="3" result="coloredBlur" />
               <feMerge>

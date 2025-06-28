@@ -1,65 +1,52 @@
+// src/components/ProductCard.tsx
 import { useLocation } from "wouter";
 import { Button } from "./Button";
 import { IoCart } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
+import { useCartStore } from "../store/cartStore";
+import type { Product } from "../types";
 
-export interface ProductCardProps {
-  id: number | string;
-  img: string;
-  title: string;
-  price: number;
-}
+export const ProductCard = ({ image, title, price, id }: Product) => {
+  const [location] = useLocation();
 
-export const ProductCard = ({ img, title, price, id }: ProductCardProps) => {
-  const location = useLocation()[0];
+  const { addItem, removeItem } = useCartStore();
 
-  const handleAddCart = (event: React.MouseEvent) => {
+  const handleAddToCartClick = (event: React.MouseEvent) => {
     event.preventDefault();
-    const storedCart = localStorage.getItem("productos");
-    const cart: ProductCardProps[] = storedCart ? JSON.parse(storedCart) : [];
-    const productExist = cart.find((item) => item.id === id);
-    if (productExist) {
-      alert("Producto ya existe al carrito");
-      return;
-    }
-
-    cart.push({ id, img, title, price });
-
-    localStorage.setItem("productos", JSON.stringify(cart));
-    alert("Producto añadido al carrito");
+    addItem({
+      id,
+      title,
+      price,
+      image,
+    });
   };
 
-  const handleDeleteCart = (event: React.MouseEvent) => {
+  const handleDeleteFromCartClick = (event: React.MouseEvent) => {
     event.preventDefault();
-    const storedCart = localStorage.getItem("productos");
-    const carts: ProductCardProps[] = storedCart ? JSON.parse(storedCart) : [];
-    const cart = carts.filter((item) => item.id !== id);
-
-    localStorage.setItem("productos", JSON.stringify(cart));
-    alert("Producto eliminado al carrito");
+    removeItem(id);
   };
 
   return (
-    <div className="bg-gray-100 w-full max-w-[250px] m-5 rounded-xl relative cursor-pointer  transition-all flex flex-col justify-between shadow h-[300px] border-1 border-black/50 hover:scale-105">
+    <div className="bg-gray-100 w-full max-w-[250px] m-5 rounded-xl relative cursor-pointer transition-all flex flex-col justify-between shadow h-[300px] border-1 border-black/50 hover:scale-105">
       {location === "/cart" ? (
         <Button
           label={<MdDeleteForever />}
           size="xl"
-          onClick={handleDeleteCart}
+          onClick={handleDeleteFromCartClick}
           className="absolute right-3 top-3"
         />
       ) : (
         <Button
           label={<IoCart />}
           size="xl"
-          onClick={handleAddCart}
+          onClick={handleAddToCartClick}
           className="absolute right-3 top-3"
         />
       )}
 
       <div className="flex justify-center items-center h-40 px-4 pt-8">
         <img
-          src={img}
+          src={image}
           alt="producto"
           className="object-contain h-full w-full max-h-full"
         />

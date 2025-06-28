@@ -1,10 +1,18 @@
 import type { Product } from "../types";
 
 export const useCost = (carrito: Product[]) => {
-  const prices = carrito.map((product) => product.price);
-  const subTotal = prices.reduce((acc, value) => acc + value, 0);
-  const impuesto = Number((subTotal * 0.1).toFixed(2));
+  const subTotal = carrito.reduce(
+    (acc, product) => acc + (product.price ?? 0),
+    0
+  );
+  const roundedSubTotal = Number(subTotal.toFixed(2));
+  const impuesto = Number((roundedSubTotal * 0.1).toFixed(2));
   const envio = carrito.length * 1.5;
-  const total = subTotal + envio + impuesto;
-  return { subTotal, envio, impuesto, total };
+  const total = Number((roundedSubTotal + envio + impuesto).toFixed(2));
+  return {
+    subTotal: roundedSubTotal.toFixed(2),
+    envio: envio.toFixed(2),
+    impuesto,
+    total,
+  };
 };

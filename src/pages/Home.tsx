@@ -35,9 +35,11 @@ export const Home = () => {
           >
             <ProductCard
               id={product.id}
-              img={product.image}
+              image={product.image}
               title={product.title}
               price={product.price}
+              description={""}
+              category={""}
             />
           </Link>
         ))}

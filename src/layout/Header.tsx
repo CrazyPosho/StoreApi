@@ -59,14 +59,3 @@ export const Header = () => {
     </>
   );
 };
-
-{
-  /*
-// ===================== RESUMEN DE CAMBIOS =====================
-//
-// - No se realizaron cambios en este archivo. Ya estaba configurado
-//   correctamente con `fixed`, `top-0`, `h-16` y `z-50`.
-//
-// ==============================================================
-*/
-}

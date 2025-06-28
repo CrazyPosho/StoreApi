@@ -1,10 +1,18 @@
-import { ProductCard, type ProductCardProps } from "../components/ProductCard";
+// src/components/Carts.tsx
+import { ProductCard } from "../components/ProductCard";
 import { useCost } from "../hooks/useCost";
+import { useCartStore } from "../store/cartStore";
+import { useEffect } from "react";
 
 export const Carts = () => {
-  const productos = localStorage.getItem("productos");
-  const carrito = productos ? JSON.parse(productos) : [];
+  const { items: carrito, loadCart } = useCartStore();
+
+  useEffect(() => {
+    loadCart();
+  }, [loadCart]);
+
   const { subTotal, total, envio, impuesto } = useCost(carrito);
+
   return (
     <div className="text-center p-4">
       <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl">
@@ -14,19 +22,25 @@ export const Carts = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         <div className="md:col-span-2 max-h-[70vh] overflow-y-auto pr-4">
           <div className="flex flex-wrap items-center justify-center">
-            {carrito.map((item: ProductCardProps) => (
-              <div
-                key={item.id}
-                className="max-w-[15.625rem] w-full h-[18.75rem] m-5"
-              >
-                <ProductCard
-                  img={item.img}
-                  title={item.title}
-                  price={item.price}
-                  id={item.id}
-                />
-              </div>
-            ))}
+            {carrito.length === 0 ? (
+              <p className="text-xl text-gray-600">Tu carrito está vacío.</p>
+            ) : (
+              carrito.map((item) => (
+                <div
+                  key={item.id}
+                  className="max-w-[15.625rem] w-full h-[18.75rem] m-5"
+                >
+                  <ProductCard
+                    image={item.image}
+                    title={item.title}
+                    price={item.price}
+                    id={item.id}
+                    description={""}
+                    category={""}
+                  />
+                </div>
+              ))
+            )}
           </div>
         </div>
 
@@ -49,14 +63,14 @@ export const Carts = () => {
             <p className="text-xl text-gray-500 font-extralight">
               Impuestos
               <br />
-              <span className="text-black">${impuesto}</span>
+              <span className="text-black">${impuesto.toFixed(2)}</span>{" "}
             </p>
           </div>
           <div>
             <p className="text-xl text-gray-500 font-extralight">
               Total
               <br />
-              <span className="text-black">${total}</span>
+              <span className="text-black">${total.toFixed(2)}</span>{" "}
             </p>
           </div>
         </div>
@@ -64,4 +78,3 @@ export const Carts = () => {
     </div>
   );
 };
-
