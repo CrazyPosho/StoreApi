@@ -29,15 +29,12 @@ export const ProductCard = ({ image, title, price, id }: Product) => {
   return (
     <div className="bg-gray-100 w-full max-w-[250px] m-5 rounded-xl relative cursor-pointer transition-all flex flex-col justify-between shadow h-[300px] border-1 border-black/50 hover:scale-105">
       {location === "/cart" ? (
-        <>
-          {" "}
-          <Button
-            label={<MdDeleteForever />}
-            size="xl"
-            onClick={handleDeleteFromCartClick}
-            className="absolute right-3 top-3"
-          />
-        </>
+        <Button
+          label={<MdDeleteForever />}
+          size="xl"
+          onClick={handleDeleteFromCartClick}
+          className="absolute right-3 top-3"
+        />
       ) : (
         <Button
           label={<IoCart />}
