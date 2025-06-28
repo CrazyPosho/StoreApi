@@ -1,6 +1,6 @@
-// src/store/cartStore.ts
 import { create, type StateCreator } from "zustand";
 import type { Product } from "../types";
+import { toast } from "react-toastify";
 
 export type CartState = {
   items: Product[];
@@ -28,13 +28,22 @@ export const createCartSlice: StateCreator<CartState> = (set) => ({
       const productExists = state.items.some((item) => item.id === product.id);
 
       if (productExists) {
-        alert("¡Este producto ya está en el carrito!");
+        toast.warn("¡Este producto ya está en el carrito!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+        });
         return state;
       }
 
       const updatedCart = [...state.items, product];
       saveCartToLocalStorage(updatedCart);
-      alert("Producto añadido al carrito");
+
+      toast.success("Producto añadido al carrito", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
       return { items: updatedCart };
     });
   },
@@ -43,7 +52,11 @@ export const createCartSlice: StateCreator<CartState> = (set) => ({
     set((state) => {
       const updatedCart = state.items.filter((item) => item.id !== id);
       saveCartToLocalStorage(updatedCart);
-      alert("Producto eliminado del carrito");
+      toast.info("Producto eliminado del carrito", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
       return { items: updatedCart };
     });
   },
@@ -53,6 +66,4 @@ export const createCartSlice: StateCreator<CartState> = (set) => ({
   },
 });
 
-export const useCartStore = create<CartState>()(
-  createCartSlice
-);
+export const useCartStore = create<CartState>()(createCartSlice);

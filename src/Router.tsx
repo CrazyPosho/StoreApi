@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Switch, Route } from "wouter";
+import { ToastContainer } from "react-toastify";
 import { Layout } from "./layout/Layout";
 import { ProductDetails } from "./pages/ProductDetails";
 import { Home } from "./pages/Home";
@@ -45,6 +46,7 @@ function Router() {
           </Route>
         </Switch>
       </Layout>
+      <ToastContainer />
     </>
   );
 }
