@@ -5,15 +5,27 @@ import type { Product } from "../types";
 import { useEffect, useState } from "react";
 import { getProductById } from "../services/api";
 import { useParams } from "wouter";
+import { useCartStore } from "../store/cartStore";
 
 export const ProductDetails = () => {
   const params = useParams();
 
   const productId = Number(params?.id);
+  const { addItem,  } = useCartStore();
 
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
+  const handleAddToCartClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    addItem({
+      id,
+      title,
+      price,
+      image,
+    });
+  };
+
 
   useEffect(() => {
     if (productId) {
@@ -29,7 +41,7 @@ export const ProductDetails = () => {
   if (error) return <div>Error al cargar el producto.</div>;
   if (!product) return <div>Producto no encontrado.</div>;
 
-  const { title, description, image, price, category } = product;
+  const { title, description, image, price, category, id } = product;
   return (
     <div className="h-screen  flex flex-col p-[5%]">
       <main className="flex-1 flex justify-between items-center gap-10 overflow-hidden">
@@ -39,13 +51,16 @@ export const ProductDetails = () => {
             {description}
           </p>
           <div className="flex gap-6 items-center">
-            <Button
-              label={
-                <div className="flex gap-2 justify-center items-center">
-                  <FaShoppingCart /> Añadir al carrito
-                </div>
-              }
-            />
+            {
+              <Button
+                label={
+                  <div className="flex gap-2 justify-center items-center">
+                    <FaShoppingCart /> Añadir al carrito
+                  </div>
+                }
+                onClick={handleAddToCartClick}
+              />
+            }
             <Button label={"Comprar ahora"} variant="secundary" />
             <CiHeart className="text-4xl text-gray-700 cursor-pointer" />
           </div>
@@ -74,3 +89,5 @@ export const ProductDetails = () => {
     </div>
   );
 };
+
+

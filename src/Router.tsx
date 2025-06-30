@@ -7,6 +7,7 @@ import { NoFound } from "./pages/NoFound";
 import { Collections } from "./pages/Collections";
 import { Carts } from "./pages/Carts";
 import { Explore } from "./pages/Explore";
+import { ToastContainer } from "react-toastify";
 
 function Router() {
   return (
@@ -35,9 +36,7 @@ function Router() {
           </Route>
 
           <Route path="/:category">
-            <Suspense>
               <Home />
-            </Suspense>
           </Route>
 
           <Route>
@@ -45,6 +44,7 @@ function Router() {
           </Route>
         </Switch>
       </Layout>
+      <ToastContainer />
     </>
   );
 }
