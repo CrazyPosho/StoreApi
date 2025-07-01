@@ -30,7 +30,7 @@ export const createCartSlice: StateCreator<CartState> = (set) => ({
 
       if (productExists) {
         toast.warn("¡Este producto ya está en el carrito!", {
-          position: "top-right",
+          position: "top-center",
           autoClose: 2000,
           hideProgressBar: true,
         });
@@ -40,7 +40,7 @@ export const createCartSlice: StateCreator<CartState> = (set) => ({
       const updatedCart = [...state.items, product];
       saveCartToLocalStorage(updatedCart);
       toast.success("Producto añadido al carrito", {
-        position: "top-right",
+        position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
       });
@@ -53,7 +53,7 @@ export const createCartSlice: StateCreator<CartState> = (set) => ({
       const updatedCart = state.items.filter((item) => item.id !== id);
       saveCartToLocalStorage(updatedCart);
       toast.info("Producto eliminado del carrito", {
-        position: "top-right",
+        position: "top-center",
         autoClose: 2000,
         hideProgressBar: true,
       });

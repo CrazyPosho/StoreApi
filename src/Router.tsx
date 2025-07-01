@@ -3,11 +3,11 @@ import { Switch, Route } from "wouter";
 import { Layout } from "./layout/Layout";
 import { ProductDetails } from "./pages/ProductDetails";
 import { Home } from "./pages/Home";
-import { NoFound } from "./pages/NoFound";
 import { Collections } from "./pages/Collections";
 import { Carts } from "./pages/Carts";
 import { Explore } from "./pages/Explore";
 import { ToastContainer } from "react-toastify";
+import NoFound from "./pages/NoFound";
 
 function Router() {
   return (
@@ -36,10 +36,10 @@ function Router() {
           </Route>
 
           <Route path="/:category">
-              <Home />
+            <Home />
           </Route>
 
-          <Route>
+          <Route path="/:rest">
             <NoFound />
           </Route>
         </Switch>

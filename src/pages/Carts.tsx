@@ -15,7 +15,7 @@ export const Carts = () => {
 
   return (
     <div className="text-center p-4">
-      <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl">
+      <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl dark:text-white">
         Tu Carrito de Compras
       </h1>
 
@@ -44,33 +44,37 @@ export const Carts = () => {
           </div>
         </div>
 
-        <div className="md:col-span-1 md:sticky md:top-55 flex flex-col justify-center items-center gap-y-5 p-4 bg-white shadow-lg rounded-lg">
+        <div className="md:col-span-1 md:sticky md:top-55 flex flex-col justify-center items-center gap-y-5 p-4 bg-white shadow-lg rounded-lg dark:bg-black  ">
           <div>
-            <p className="text-xl text-gray-500 font-extralight">
+            <p className="text-xl text-gray-500  font-extralight dark:text-white">
               Subtotal
               <br />
-              <span className="text-black">${subTotal}</span>
+              <span className="text-black dark:text-white/80">${subTotal}</span>
             </p>
           </div>
           <div>
-            <p className="text-xl text-gray-500 font-extralight">
+            <p className="text-xl text-gray-500 font-extralight dark:text-white">
               Envío
               <br />
-              <span className="text-black">${envio}</span>
+              <span className="text-black dark:text-white/80">${envio}</span>
             </p>
           </div>
           <div>
-            <p className="text-xl text-gray-500 font-extralight">
+            <p className="text-xl text-gray-500 font-extralight dark:text-white">
               Impuestos
               <br />
-              <span className="text-black">${impuesto.toFixed(2)}</span>{" "}
+              <span className="text-black dark:text-white/80">
+                ${impuesto.toFixed(2)}
+              </span>{" "}
             </p>
           </div>
           <div>
-            <p className="text-xl text-gray-500 font-extralight">
+            <p className="text-xl text-gray-500 font-extralight dark:text-white">
               Total
               <br />
-              <span className="text-black">${total.toFixed(2)}</span>{" "}
+              <span className="text-black dark:text-white/80">
+                ${total.toFixed(2)}
+              </span>{" "}
             </p>
           </div>
         </div>

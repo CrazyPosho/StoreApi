@@ -22,7 +22,7 @@ const info = [
 export const Collections = () => {
   return (
     <div className="text-center  p-4">
-      <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl">
+      <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl dark:text-white">
         Nuestras colecciones
       </h1>
       <div className="w-full max-w-7xl mx-auto">
@@ -31,7 +31,7 @@ export const Collections = () => {
             <Link
               key={info.title}
               href={`/${info.title}`}
-              className=" w-full bg-white rounded-xl shadow-lg overflow-hidden flex flex-col group cursor-pointer transition-all duration-500 hover:shadow-2xl active:scale-90 ease-linear"
+              className=" w-full bg-white dark:bg-black/90  rounded-xl shadow-lg overflow-hidden flex flex-col group cursor-pointer transition-all duration-500 hover:shadow-2xl active:scale-90 ease-linear"
             >
               <CardCategory img={info.img} title={info.title} />
             </Link>

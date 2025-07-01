@@ -22,7 +22,7 @@ export const Home = () => {
 
   return (
     <div className="text-center  p-4">
-      <h1 className="border-b-1 border-b-black inline-block font-extralight text-4xl">
+      <h1 className="border-b-1 border-b-black inline-block font-extralight text-4xl dark:text-white">
         Nuestros Productos
       </h1>
 

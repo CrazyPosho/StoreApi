@@ -8,7 +8,7 @@ interface LayoutProp {
 
 export const Layout = ({ children }: LayoutProp) => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-black/90">
       <Header />
 
       <main className="flex-1 overflow-y-auto pt-16 pb-12 flex justify-center">

@@ -1,5 +1,4 @@
 import { Button } from "../components/Button";
-import { CiHeart } from "react-icons/ci";
 import { FaShoppingCart } from "react-icons/fa";
 import type { Product } from "../types";
 import { useEffect, useState } from "react";
@@ -11,7 +10,7 @@ export const ProductDetails = () => {
   const params = useParams();
 
   const productId = Number(params?.id);
-  const { addItem,  } = useCartStore();
+  const { addItem } = useCartStore();
 
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
@@ -25,7 +24,6 @@ export const ProductDetails = () => {
       image,
     });
   };
-
 
   useEffect(() => {
     if (productId) {
@@ -46,11 +44,11 @@ export const ProductDetails = () => {
     <div className="h-screen  flex flex-col p-[5%]">
       <main className="flex-1 flex justify-between items-center gap-10 overflow-hidden">
         <section className="max-w-[50%]">
-          <h1 className="text-5xl font-bold pb-6 leading-tight">{title}</h1>
-          <p className="text-gray-600 leading-relaxed tracking-normal text-justify pb-8">
+          <h1 className="text-5xl font-bold pb-6 leading-tight dark:text-white">{title}</h1>
+          <p className="text-gray-600 leading-relaxed tracking-normal text-justify pb-8 dark:text-white/80">
             {description}
           </p>
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-6 items-center justify-center">
             {
               <Button
                 label={
@@ -61,8 +59,6 @@ export const ProductDetails = () => {
                 onClick={handleAddToCartClick}
               />
             }
-            <Button label={"Comprar ahora"} variant="secundary" />
-            <CiHeart className="text-4xl text-gray-700 cursor-pointer" />
           </div>
         </section>
 
@@ -89,5 +85,3 @@ export const ProductDetails = () => {
     </div>
   );
 };
-
-

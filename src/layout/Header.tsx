@@ -2,9 +2,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useChangeMode } from "../hooks/useChangeMode";
 import { ChangeModeButton } from "../components/ChangeModeButton";
 import { Link } from "wouter";
+import { useCartStore } from "../store/cartStore";
 
 export const Header = () => {
   const { toggleTheme, theme } = useChangeMode();
+  const { items: carrito } = useCartStore();
+
   return (
     <>
       <div
@@ -44,8 +47,17 @@ export const Header = () => {
         </div>
         <div className="flex items-center justify-center gap-5">
           <Link href="/cart">
-            <div className="flex items-center justify-center gap-2 cursor-pointer hover:scale-125 transition-transform">
-              <FaShoppingCart />
+            <div className="flex items-center justify-center gap-2 cursor-pointer hover:scale-125 transition-transform relative">
+              <div
+                className="text-sm absolute p-1 rounded-full bg-blue-600
+              bottom-3 left-2 text-white"
+              >
+                {carrito.length}
+              </div>
+              <div className="text-2xl">
+                {" "}
+                <FaShoppingCart />
+              </div>
               Cart
             </div>
           </Link>
