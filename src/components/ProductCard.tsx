@@ -4,6 +4,7 @@ import { IoCart } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
 import { useCartStore } from "../store/cartStore";
 import type { Product } from "../types";
+import { motion } from "framer-motion";
 
 export const ProductCard = ({ image, title, price, id }: Product) => {
   const [location] = useLocation();
@@ -26,9 +27,13 @@ export const ProductCard = ({ image, title, price, id }: Product) => {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-black/90 w-full max-w-[250px] m-5 rounded-xl relative cursor-pointer transition-all flex flex-col justify-between shadow h-[300px] border-1 border-black/50 hover:scale-105  dark:text-white dark:border-white">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="bg-gray-50 dark:bg-black/90 w-full max-w-[250px] m-5 rounded-xl relative cursor-pointer transition-all flex flex-col justify-between shadow h-[300px] border-1 border-black/50 hover:scale-105  dark:text-white dark:border-white"
+    >
       {location === "/cart" ? (
-
         <Button
           label={<MdDeleteForever />}
           size="xl"
@@ -60,27 +65,6 @@ export const ProductCard = ({ image, title, price, id }: Product) => {
           ${price}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
-
-/*
-### Explicación de los cambios:
-
-#### En `Button.tsx`:
-
-1.  **Nuevas Variantes de Botón**:
-    * **Problema a solucionar**: Necesitábamos botones con colores específicos para acciones de "éxito" (verde) y "peligro" (rojo) que fueran reutilizables.
-    * **Cambio realizado**:
-        * En la interfaz `ButtonProps`, se expandió el tipo `variant` para incluir `"success" | "danger"`.
-        * En el objeto `variantClasses`, se agregaron las claves `success` y `danger` con sus respectivas clases de Tailwind CSS para los colores de fondo, efectos `hover`/`active` y modo oscuro. Esto mantiene toda la lógica de estilos dentro del componente `Button`, promoviendo la reutilización y un código más limpio.
-
-#### En `ProductCard.tsx`:
-
-1.  **Aplicación Condicional de Variantes**:
-    * **Problema a solucionar**: El botón en la tarjeta de producto debía cambiar de color según la página en la que se encontrara el usuario.
-    * **Cambio realizado**:
-        * Para el botón que aparece cuando `location === "/cart"`, se añadió la prop `variant="danger"`. Esto aplica los estilos rojos que definimos en el componente `Button`.
-        * Para el botón que aparece en el resto de las páginas, se añadió la prop `variant="success"`. Esto aplica los estilos verdes correspondientes.
-    * **Beneficio**: Este enfoque es declarativo y fácil de leer. En lugar de pasar clases de CSS complejas, simplemente le dices al botón "quiero que seas de tipo 'danger' o 'success'", y el componente `Button` se encarga del resto.
-*/
