@@ -49,8 +49,8 @@ export const Header = () => {
           <Link href="/cart">
             <div className="flex items-center justify-center gap-2 cursor-pointer hover:scale-125 transition-transform relative">
               <div
-                className="text-sm absolute p-1 rounded-full bg-blue-600
-              bottom-3 left-2 text-white"
+                className="absolute -top-2 -left-2  bg-blue-600 rounded-full
+                           text-white text-xs w-5 h-5 flex items-center justify-center"
               >
                 {carrito.length}
               </div>
@@ -71,3 +71,5 @@ export const Header = () => {
     </>
   );
 };
+
+

@@ -1,4 +1,3 @@
-// src/store/cartStore.ts
 import { create, type StateCreator } from "zustand";
 import type { Product } from "../types";
 import { toast } from "react-toastify";
