@@ -25,14 +25,14 @@ const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
     "cursor-pointer hover:scale-105 active:scale-95 transition-all",
   // Nuevas variantes de color
   success:
-    "bg-green-600 text-white hover:bg-green-700 active:bg-green-600 " +
-    "dark:bg-green-500 dark:hover:bg-green-600 dark:active:bg-green-500 " +
+    "bg-green-600/80 text-white hover:bg-green-700/80 active:bg-green-600/80 " +
+    "dark:bg-green-500/80 dark:hover:bg-green-600/80 dark:active:bg-green-500/80 " +
     "cursor-pointer hover:scale-105 active:scale-95 transition-all",
   danger:
-    "bg-red-600 text-white hover:bg-red-700 active:bg-red-600 " +
-    "dark:bg-red-500 dark:hover:bg-red-600 dark:active:bg-red-500 " +
+    "bg-red-600/80 text-white hover:bg-red-700/80 active:bg-red-600/80 " +
+    "dark:bg-red-500/80 dark:hover:bg-red-600/80 dark:active:bg-red-500/80 " +
     "cursor-pointer hover:scale-105 active:scale-95 transition-all",
-  disabled: "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50",
+  disabled: "bg-gray-300/80 text-gray-500/80 cursor-not-allowed opacity-50",
 };
 
 export const Button = ({

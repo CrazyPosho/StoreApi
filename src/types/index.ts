@@ -6,3 +6,10 @@ export interface Product {
   category?: string;
   image: string;
 }
+
+export const VALID_CATEGORIES = [
+  "jewelery",
+  "men's clothing",
+  "electronics",
+  "women's clothing",
+];

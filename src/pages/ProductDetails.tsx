@@ -41,14 +41,20 @@ export const ProductDetails = () => {
 
   const { title, description, image, price, category, id } = product;
   return (
-    <div className="h-screen  flex flex-col p-[5%]">
+    <div className="flex flex-col p-4">
       <main className="flex-1 flex justify-between items-center gap-10 overflow-hidden">
-        <section className="max-w-[50%]">
-          <h1 className="text-5xl font-bold pb-6 leading-tight dark:text-white">{title}</h1>
+        <section className="max-w-[50%] ">
+          <h1 className="text-5xl font-bold  leading-tight dark:text-white pb-8">
+            {title}
+          </h1>
           <p className="text-gray-600 leading-relaxed tracking-normal text-justify pb-8 dark:text-white/80">
             {description}
           </p>
-          <div className="flex gap-6 items-center justify-center">
+          <div className="flex gap-8 items-center ">
+            <p className="font-bold text-xl p-2 rounded-xl">
+              ${price}
+              <br />
+            </p>
             {
               <Button
                 label={
@@ -60,6 +66,7 @@ export const ProductDetails = () => {
               />
             }
           </div>
+          <p className="font-bold text-xl pt-4  inline-block">{category}</p>
         </section>
 
         <figure className="max-w-[40%]">
@@ -70,18 +77,6 @@ export const ProductDetails = () => {
           />
         </figure>
       </main>
-
-      <footer className="flex flex-wrap justify-between border-t-2 border-gray-400 pt-4 text-center">
-        <div className="w-1/2 md:w-1/4 p-2">
-          <p className="font-bold text-xl">
-            ${price}
-            <br />
-          </p>
-        </div>
-        <div className="w-1/2 md:w-1/4 p-2">
-          <p className="font-bold text-xl">{category}</p>
-        </div>
-      </footer>
     </div>
   );
 };

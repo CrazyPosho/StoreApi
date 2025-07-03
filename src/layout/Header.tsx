@@ -47,14 +47,14 @@ export const Header = () => {
         </div>
         <div className="flex items-center justify-center gap-5">
           <Link href="/cart">
-            <div className="flex items-center justify-center gap-2 cursor-pointer hover:scale-125 transition-transform relative">
+            <div className="flex items-center justify-center gap-2 cursor-pointer hover:scale-125 duration-300 relative">
               <div
                 className="absolute -top-2 -left-2  bg-blue-600 rounded-full
                            text-white text-xs w-5 h-5 flex items-center justify-center"
               >
                 {carrito.length}
               </div>
-              <div className="text-2xl">
+              <div className="text-2xl ">
                 {" "}
                 <FaShoppingCart />
               </div>
@@ -71,5 +71,3 @@ export const Header = () => {
     </>
   );
 };
-
-

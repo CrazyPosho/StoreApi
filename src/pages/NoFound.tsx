@@ -1,6 +1,6 @@
 export const NotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-800 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-800 p-4 ">
       <h1 className="text-6xl font-extrabold text-blue-600 mb-4 animate-bounce">
         404
       </h1>

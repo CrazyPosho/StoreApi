@@ -22,4 +22,3 @@ export const CardCategory = ({ img, title }: CardCategoryProps) => {
     </>
   );
 };
-<div className="w-96 bg-white rounded-xl shadow-lg overflow-hidden flex flex-col group cursor-pointer transition-all duration-300 hover:shadow-2xl active:scale-90"></div>

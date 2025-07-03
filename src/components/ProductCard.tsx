@@ -26,22 +26,21 @@ export const ProductCard = ({ image, title, price, id }: Product) => {
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-black/90 w-full max-w-[250px] m-5 rounded-xl relative cursor-pointer transition-all flex flex-col justify-between shadow h-[300px] border-1 border-black/50 hover:scale-105  dark:text-white">
+    <div className="bg-gray-50 dark:bg-black/90 w-full max-w-[250px] m-5 rounded-xl relative cursor-pointer transition-all flex flex-col justify-between shadow h-[300px] border-1 border-black/50 hover:scale-105  dark:text-white dark:border-white">
       {location === "/cart" ? (
-        // Botón de eliminar (rojo)
+
         <Button
           label={<MdDeleteForever />}
           size="xl"
-          variant="danger" // Se usa la variante "danger"
+          variant="danger"
           onClick={handleDeleteFromCartClick}
           className="absolute right-3 top-3"
         />
       ) : (
-        // Botón de agregar al carrito (verde)
         <Button
           label={<IoCart />}
           size="xl"
-          variant="success" // Se usa la variante "success"
+          variant="primary"
           onClick={handleAddToCartClick}
           className="absolute right-3 top-3"
         />

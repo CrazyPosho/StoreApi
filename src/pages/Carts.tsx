@@ -14,16 +14,16 @@ export const Carts = () => {
   const { subTotal, total, envio, impuesto } = useCost(carrito);
 
   return (
-    <div className="text-center p-4">
+    <div className="text-center p-4 ">
       <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl dark:text-white">
         Tu Carrito de Compras
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-        <div className="md:col-span-2 max-h-[70vh] overflow-y-auto pr-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start w-full max-w-7xl mx-auto">
+        <div className="md:col-span-2 max-h-[80vh] overflow-y-auto p-4">
           <div className="flex flex-wrap items-center justify-center">
             {carrito.length === 0 ? (
-              <p className="text-xl text-gray-600">Tu carrito está vacío.</p>
+              <p className="text-xl dark:text-white">Tu carrito está vacío.</p>
             ) : (
               carrito.map((item) => (
                 <div
@@ -44,7 +44,7 @@ export const Carts = () => {
           </div>
         </div>
 
-        <div className="md:col-span-1 md:sticky md:top-55 flex flex-col justify-center items-center gap-y-5 p-4 bg-white shadow-lg rounded-lg dark:bg-black  ">
+        <div className="md:col-span-1 md:sticky md:top-55 flex flex-col justify-center items-center gap-y-5 p-4   dark:bg-black  ">
           <div>
             <p className="text-xl text-gray-500  font-extralight dark:text-white">
               Subtotal
