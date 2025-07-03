@@ -41,7 +41,7 @@ export const ProductDetails = () => {
 
   const { title, description, image, price, category, id } = product;
   return (
-    <div className="flex flex-col p-4">
+    <div className="flex flex-col p-4  min-h-[82vh] items-center justify-center">
       <main className="flex-1 flex justify-between items-center gap-10 overflow-hidden">
         <section className="max-w-[50%] ">
           <h1 className="text-5xl font-bold  leading-tight dark:text-white pb-8">
@@ -51,7 +51,7 @@ export const ProductDetails = () => {
             {description}
           </p>
           <div className="flex gap-8 items-center ">
-            <p className="font-bold text-xl p-2 rounded-xl">
+            <p className="font-bold text-xl p-2 rounded-xl dark:text-white">
               ${price}
               <br />
             </p>
@@ -66,7 +66,9 @@ export const ProductDetails = () => {
               />
             }
           </div>
-          <p className="font-bold text-xl pt-4  inline-block">{category}</p>
+          <p className="font-bold text-xl pt-4  inline-block dark:text-white">
+            {category}
+          </p>
         </section>
 
         <figure className="max-w-[40%]">
