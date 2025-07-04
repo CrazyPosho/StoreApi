@@ -4,6 +4,7 @@ import { VALID_CATEGORIES } from "../types/index";
 import { ProductCard } from "../components/ProductCard";
 import type { Product } from "../types";
 import { Link } from "wouter";
+import NotFound from "./NoFound";
 
 export const Home = () => {
   const { category } = useParams();
@@ -11,15 +12,15 @@ export const Home = () => {
   const { loading, error, productFiltered } = useGetProducts(category);
 
   if (category && !VALID_CATEGORIES.includes(category)) {
-    return (
-      <div className="text-center mt-10 text-2xl dark:text-white">
-        Categoría no encontrada 😢
-      </div>
-    );
+    return <NotFound />;
   }
 
   if (loading)
-    return <div className="text-center text-2xl">Cargando productos...</div>;
+    return (
+      <div className="text-center text-2xl dark:text-white">
+        Cargando productos...
+      </div>
+    );
 
   if (error)
     return (
@@ -28,7 +29,7 @@ export const Home = () => {
 
   return (
     <div className="text-center p-4">
-      <h1 className="border-b-1 border-b-black inline-block font-extralight text-4xl dark:text-white">
+      <h1 className="border-b-1 border-b-black inline-block font-extralight text-4xl dark:text-white dark:border-b-white">
         Nuestros Productos
       </h1>
 

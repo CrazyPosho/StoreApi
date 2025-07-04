@@ -1,4 +1,3 @@
-// src/pages/Explore.tsx (Centrado perfecto)
 import { IconAI } from "../components/IconAI";
 
 export const Explore = () => {

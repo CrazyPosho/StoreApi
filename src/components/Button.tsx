@@ -4,7 +4,7 @@ interface ButtonProps {
   label: string | ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   size?: "sm" | "base" | "xl";
-  variant?: "primary" | "secondary" | "disabled" | "success" | "danger"; // Se añaden nuevas variantes
+  variant?: "primary" | "secondary" | "disabled" | "success" | "danger";
   className?: string;
 }
 
@@ -23,7 +23,6 @@ const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
     "border-2 border-black text-black hover:bg-black hover:text-white active:bg-black/55 " +
     "dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black dark:active:bg-white/90 " +
     "cursor-pointer hover:scale-105 active:scale-95 transition-all",
-  // Nuevas variantes de color
   success:
     "bg-green-600/80 text-white hover:bg-green-700/80 active:bg-green-600/80 " +
     "dark:bg-green-500/80 dark:hover:bg-green-600/80 dark:active:bg-green-500/80 " +

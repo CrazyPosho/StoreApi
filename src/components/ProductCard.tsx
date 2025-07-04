@@ -30,7 +30,7 @@ export const ProductCard = ({ image, title, price, id }: Product) => {
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
       className="bg-gray-50 dark:bg-black/90 w-full max-w-[250px] m-5 rounded-xl relative cursor-pointer transition-all flex flex-col justify-between shadow h-[300px] border-1 border-black/50 hover:scale-105  dark:text-white dark:border-white"
     >
       {location === "/cart" ? (

@@ -1,6 +1,5 @@
-// src/components/Carts.tsx
 import { ProductCard } from "../components/ProductCard";
-import { useCost } from "../hooks/useCost";
+import { useCost } from "../utils/costCalculate";
 import { useCartStore } from "../store/cartStore";
 import { useEffect } from "react";
 
@@ -15,7 +14,7 @@ export const Carts = () => {
 
   return (
     <div className="text-center p-4 ">
-      <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl dark:text-white">
+      <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl dark:text-white dark:border-b-white">
         Tu Carrito de Compras
       </h1>
       <div className=" p-4  min-h-[80vh]">
@@ -23,7 +22,7 @@ export const Carts = () => {
           <div className="md:col-span-2 max-h-[80vh] overflow-y-auto p-4">
             <div className="flex flex-wrap items-center justify-center">
               {carrito.length === 0 ? (
-                <p className="text-xl dark:text-white">
+                <p className="text-xl dark:text-white text-center">
                   Tu carrito está vacío.
                 </p>
               ) : (
@@ -46,9 +45,9 @@ export const Carts = () => {
             </div>
           </div>
 
-          <div className="md:col-span-1 md:sticky md:top-55 flex flex-col justify-center items-center gap-y-5 p-4">
+          <div className="md:col-span-1 md:sticky md:top-55 flex flex-col justify-center items-center gap-y-5 p-4 text-center">
             <div>
-              <p className="text-xl text-gray-500  font-extralight dark:text-white">
+              <p className="text-xl text-gray-500  font-extralight dark:text-white flex gap-x-4">
                 Subtotal
                 <br />
                 <span className="text-black dark:text-white/80">
@@ -57,14 +56,14 @@ export const Carts = () => {
               </p>
             </div>
             <div>
-              <p className="text-xl text-gray-500 font-extralight dark:text-white">
+              <p className="text-xl text-gray-500 font-extralight dark:text-white flex gap-x-4">
                 Envío
                 <br />
                 <span className="text-black dark:text-white/80">${envio}</span>
               </p>
             </div>
             <div>
-              <p className="text-xl text-gray-500 font-extralight dark:text-white">
+              <p className="text-xl text-gray-500 font-extralight dark:text-white flex gap-x-4">
                 Impuestos
                 <br />
                 <span className="text-black dark:text-white/80">
@@ -73,7 +72,7 @@ export const Carts = () => {
               </p>
             </div>
             <div>
-              <p className="text-xl text-gray-500 font-extralight dark:text-white">
+              <p className="text-xl text-gray-500 font-extralight dark:text-white flex gap-x-4">
                 Total
                 <br />
                 <span className="text-black dark:text-white/80">

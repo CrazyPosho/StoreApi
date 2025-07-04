@@ -22,18 +22,14 @@ const info = [
 export const Collections = () => {
   return (
     <div className="text-center p-4">
-      <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl dark:text-white">
+      <h1 className="border-b-1 border-b-black inline-block font-extralight mb-8 text-4xl dark:text-white dark:border-b-white">
         Nuestras colecciones
       </h1>
       <div className=" min-h-[70vh] flex items-center justify-center">
         <div className="w-full max-w-7xl mx-auto ">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {info.map((info) => (
-              <Link
-                key={info.title}
-                href={`/${info.title}`}
-                className=" w-full bg-white dark:bg-black/90  rounded-xl shadow-lg overflow-hidden flex flex-col group cursor-pointer transition-all duration-500 hover:shadow-2xl active:scale-90 ease-linear"
-              >
+              <Link key={info.title} href={`/${info.title}`} className="  ">
                 <CardCategory img={info.img} title={info.title} />
               </Link>
             ))}

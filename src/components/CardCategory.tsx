@@ -8,11 +8,10 @@ interface CardCategoryProps {
 export const CardCategory = ({ img, title }: CardCategoryProps) => {
   return (
     <motion.article
-      className="group flex flex-col h-80 w-64 cursor-pointer overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 hover:shadow-xl dark:bg-zinc-800"
+      className="group flex flex-col h-96 w-64 cursor-pointer overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 hover:shadow-xl dark:bg-zinc-800 dark:border-1 dark:border-white"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
     >
       <div className="h-4/5 w-full overflow-hidden">
         <img
