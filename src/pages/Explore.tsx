@@ -1,12 +1,33 @@
-import { IconAI } from "../components/IconAI";
+import { useAISearch } from "../hooks/useAISearch";
+import { SearchInput } from "../components/SearchInput";
+import { SearchResults } from "../components/SearchResults";
 
 export const Explore = () => {
+  const { products, isLoading, error, hasSearched, searchProducts } =
+    useAISearch();
+
   return (
-    <div className=" min-h-[83vh] flex flex-col items-center justify-center text-center">
-      <h1 className="text-5xl md:text-7xl font-extralight dark:text-white mb-8">
-        Muy Pronto con Inteligencia Artificial
-      </h1>
-      <IconAI />
+    <div className="min-h-[83vh] px-4 py-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-6xl font-extralight dark:text-white mb-4">
+            Explorador con IA
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Describe lo que buscas y nuestra inteligencia artificial encontrará
+            los productos perfectos para ti
+          </p>
+        </div>
+
+        <SearchInput onSearch={searchProducts} isLoading={isLoading} />
+
+        <SearchResults
+          products={products}
+          isLoading={isLoading}
+          error={error}
+          hasSearched={hasSearched}
+        />
+      </div>
     </div>
   );
 };
